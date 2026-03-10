@@ -7,13 +7,14 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <head>
         <title>Plataforma de Gestión Personal</title>
-        <link rel="icon" type="image/x-icon" href="/assets/image/computacion-en-la-nube.png"/>
+        <link
+          rel="icon"
+          type="image/x-icon"
+          href="/assets/image/computacion-en-la-nube.png"
+        />
       </head>
-      <head>
-      </head>
-      <body>
-        {children}
-      </body>
+      <head></head>
+      <body>{children}</body>
     </html>
   );
 }
