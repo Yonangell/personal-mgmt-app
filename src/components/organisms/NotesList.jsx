@@ -1,5 +1,5 @@
-import NoteItem from "@/molecules/NoteItem";
-import Text from "@/atoms/Text";
+import NoteItem from "@/components/molecules/NoteItem";
+import Text from "@/components/atoms/Text";
 
 export default function NoteList() {
   const notes = [

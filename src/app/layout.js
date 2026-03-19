@@ -1,7 +1,5 @@
 import "@/globals.css";
 
-
-
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
@@ -13,7 +11,8 @@ export default function RootLayout({ children }) {
           href="/assets/image/computacion-en-la-nube.png"
         />
       </head>
-      <body>{children}</body>
+      <body>
+        {children}</body>
     </html>
   );
 }

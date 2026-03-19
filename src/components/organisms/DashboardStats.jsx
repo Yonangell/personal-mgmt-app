@@ -1,5 +1,5 @@
-import Card from "@/atoms/Card";
-import Text from "@/atoms/Text";
+import Card from "@/components/atoms/Card";
+import Text from "@/components/atoms/Text";
 
 export default function DashboardStats() {
   return (

@@ -1,7 +1,7 @@
-import Badge from "@/atoms/Badge";
-import Button from "@/atoms/Button";
-import Text from "@/atoms/Text";
-import Card from "@/atoms/Card";
+import Badge from "@/components/atoms/Badge";
+import Button from "@/components/atoms/Button";
+import Text from "@/components/atoms/Text";
+import Card from "@/components/atoms/Card";
 
 export default function TaskItem({ title, status }) {
   return (

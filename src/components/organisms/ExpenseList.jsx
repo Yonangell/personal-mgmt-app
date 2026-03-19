@@ -1,5 +1,5 @@
-import Expense from "@/molecules/Expense";
-import Text from "@/atoms/Text";
+import ExpenseItem from "@/components/molecules/ExpenseItem";
+import Text from "@/components/atoms/Text";
 
 export default function ExpenseList() {
   const expenses = [
@@ -12,7 +12,7 @@ export default function ExpenseList() {
       <Text className="text-xl font-semibold">Mis Gastos</Text>
 
       {expenses.map((expense) => (
-        <Expense
+        <ExpenseItem
           key={expense.id}
           title={expense.title}
           amount={expense.amount}

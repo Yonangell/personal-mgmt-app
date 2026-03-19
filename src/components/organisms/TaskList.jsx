@@ -1,5 +1,5 @@
-import TaskItem from "@/molecules/TaskItem";
-import Text from "@/atoms/Text";
+import TaskItem from "@/components/molecules/TaskItem";
+import Text from "@/components/atoms/Text";
 
 export default function TaskList() {
   const tasks = [
