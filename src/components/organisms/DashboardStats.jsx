@@ -3,7 +3,7 @@ import Text from "@/components/atoms/Text";
 
 export default function DashboardStats() {
   return (
-    <div className="grid grid-cols-3 gap-4">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       <Card>
         <Text className="text-sm">Tareas</Text>
         <Text className="text-xl font-bold">12</Text>

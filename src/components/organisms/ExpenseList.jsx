@@ -9,8 +9,6 @@ export default function ExpenseList() {
 
   return (
     <div className="space-y-4">
-      <Text className="text-xl font-semibold">Mis Gastos</Text>
-
       {expenses.map((expense) => (
         <ExpenseItem
           key={expense.id}

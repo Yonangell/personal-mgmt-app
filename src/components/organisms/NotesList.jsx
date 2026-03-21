@@ -13,7 +13,7 @@ export default function NoteList() {
 
   return (
     <div className="space-y-4">
-      <Text className="text-xl font-semibold">Mis Notas</Text>
+      {/*<Text className="text-xl font-semibold">Mis Notas</Text>*/}
 
       {notes.map((note) => (
         <NoteItem key={note.id} title={note.title} content={note.content} />

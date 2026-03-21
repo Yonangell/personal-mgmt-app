@@ -11,8 +11,7 @@ export default function RootLayout({ children }) {
           href="/assets/image/computacion-en-la-nube.png"
         />
       </head>
-      <body>
-        {children}</body>
+      <body className="font-sans bg-slate-300">{children}</body>
     </html>
   );
 }

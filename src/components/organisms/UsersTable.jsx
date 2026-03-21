@@ -1,5 +1,5 @@
-import Text from "@/atoms/Text";
-import Button from "@/atoms/Button";
+import Text from "@/components/atoms/Text";
+import Button from "@/components/atoms/Button";
 
 export default function UsersTable() {
   const users = [
@@ -8,7 +8,7 @@ export default function UsersTable() {
   ];
 
   return (
-    <div className="space-y-4">
+    <div className="overflow-x-auto">
       <Text className="text-xl font-semibold">Usuarios</Text>
 
       <table className="w-full border">

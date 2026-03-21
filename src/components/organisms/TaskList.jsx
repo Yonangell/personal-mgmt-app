@@ -9,7 +9,7 @@ export default function TaskList() {
 
   return (
     <div className="space-y-4">
-      <Text className="text-xl font-semibold">Mis Tareas</Text>
+     {/*<Text className="text-xl font-semibold">Mis Tareas</Text>*/}
 
       {tasks.map((task) => (
         <TaskItem key={task.id} title={task.title} status={task.status} />

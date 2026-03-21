@@ -1,9 +1,9 @@
-import Label from "@/atoms/Label";
-import Text from "@/atoms/Text";
-import Input from "@/atoms/Input";
+import Label from "@/components/atoms/Label";
+import Text from "@/components/atoms/Text";
+import Input from "@/components/atoms/Input";
 
 export default function InpuField({
-  laber,
+  label,
   type = "text",
   placeholder,
   error,

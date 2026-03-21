@@ -1,8 +1,7 @@
-import Image from "next/image";
-
-export default function Avatar({ src, alt = "avatar" }) {
-  const imageSrc = src || "/default-avatar.png";
+export default function Avatar() {
   return (
-    <Image src={imageSrc} alt={alt} className="w-8 h-8 rounded-full object-cover" width={40} height={40} />
+    <div className="w-10 h-10 rounded-full bg-primary flex items-center justify-center text-shadow-slate-500 font-bold hover:bg-neutral-400">
+      Y
+    </div>
   );
 }

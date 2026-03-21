@@ -1,6 +1,6 @@
-import InputField from "@/molecules/InputField";
-import Button from "@/atoms/Button";
-import Text from "@/atoms/Text";
+import InputField from "@/components/molecules/InputField";
+import Button from "@/components/atoms/Button";
+import Text from "@/components/atoms/Text";
 
 export default function LoginForm() {
   return (
