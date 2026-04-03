@@ -1,5 +1,5 @@
 export const user = {
   name: "Yonangell",
-  name: "admin",
-  name: "free",
+  role: "Administrador",
+  plan: "Élite",
 };

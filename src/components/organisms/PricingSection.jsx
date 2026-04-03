@@ -1,6 +1,10 @@
 "use client";
 
 import { motion } from "framer-motion";
+import Button from "@/components/atoms/Button";
+import Card from "@/components/atoms/Card";
+import Text from "@/components/atoms/Text";
+import Badge from "@/components/atoms/Badge";
 
 const plans = [
   {
@@ -40,18 +44,7 @@ const containerVariants = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const cardVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: {
-    opacity: 1,
-    y: 0,
-    transition: { duration: 0.5, ease: "easeOut" },
+    transition: { staggerChildren: 0.2 },
   },
 };
 
@@ -67,49 +60,59 @@ export default function PricingSection() {
       {plans.map((plan, index) => (
         <motion.div
           key={index}
-          variants={cardVariants}
-          whileHover={{ y: -10, transition: { duration: 0.2 } }}
-          className={`relative p-8 rounded-3xl border-2 flex flex-col ${
-            plan.isPopular
-              ? "border-blue-600 bg-white shadow-2xl shadow-blue-100"
-              : "border-slate-100 bg-slate-50/50"
-          }`}
+          variants={{
+            hidden: { opacity: 0, y: 30 },
+            visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+          }}
+          whileHover={{ y: -10 }}
         >
-          {plan.isPopular && (
-            <span className="absolute -top-4 left-1/2 -translate-x-1/2 bg-blue-600 text-white text-[10px] font-black px-4 py-1 rounded-full uppercase tracking-widest">
-              Más Popular
-            </span>
-          )}
-
-          <h3 className="text-xl font-bold text-slate-900">{plan.name}</h3>
-          <div className="mt-4 mb-6">
-            <span className="text-4xl font-black text-slate-900">
-              ${plan.price}
-            </span>
-            <span className="text-slate-500 text-sm">/mes</span>
-          </div>
-
-          <ul className="space-y-4 mb-8 flex-1">
-            {plan.features.map((feature, idx) => (
-              <li
-                key={idx}
-                className="flex items-center gap-3 text-sm text-slate-600"
-              >
-                <span className="text-blue-500 font-bold">✓</span>
-                {feature}
-              </li>
-            ))}
-          </ul>
-
-          <button
-            className={`w-full py-4 rounded-2xl font-bold transition-all ${
+          <Card
+            className={`relative h-full flex flex-col p-8 rounded-[2.5rem] border-2 transition-all ${
               plan.isPopular
-                ? "bg-blue-600 text-white hover:bg-blue-700 shadow-lg shadow-blue-200"
-                : "bg-white border-2 border-slate-200 text-slate-900 hover:border-slate-900"
+                ? "border-primary bg-white shadow-2xl shadow-primary/10"
+                : "border-light bg-light/30 shadow-none"
             }`}
           >
-            {plan.buttonText}
-          </button>
+            {plan.isPopular && (
+              <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                <Badge className="bg-primary text-white border-none px-4 py-1 shadow-lg shadow-primary/30">
+                  MÁS POPULAR
+                </Badge>
+              </div>
+            )}
+
+            <Text className="text-xl font-black text-dark uppercase tracking-tight">
+              {plan.name}
+            </Text>
+
+            <div className="mt-4 mb-6 flex items-baseline gap-1">
+              <span className="text-5xl font-black text-dark tracking-tighter">
+                ${plan.price}
+              </span>
+              <Text className="text-slate-400 font-bold text-sm">/mes</Text>
+            </div>
+
+            <ul className="space-y-4 mb-8 flex-1">
+              {plan.features.map((feature, idx) => (
+                <li key={idx} className="flex items-center gap-3">
+                  <span className="text-primary font-bold text-lg">✓</span>
+                  <Text className="text-sm font-medium opacity-80">
+                    {feature}
+                  </Text>
+                </li>
+              ))}
+            </ul>
+
+            <Button
+              className={`w-full py-4 text-xs font-black uppercase tracking-widest transition-all cursor-pointer ${
+                plan.isPopular
+                  ? "bg-slate-900 text-white hover:bg-slate-800 shadow-xl shadow-primary/20 border-none"
+                  : "bg-transparent border-2 border-dark/10 text-dark hover:border-dark"
+              }`}
+            >
+              {plan.buttonText}
+            </Button>
+          </Card>
         </motion.div>
       ))}
     </motion.div>

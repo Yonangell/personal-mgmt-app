@@ -1,52 +1,75 @@
 "use client";
 
-import Avatar from "@/components/atoms/Avatar";
 import Text from "@/components/atoms/Text";
 
 export default function Navbar({ onMenuClick }) {
-  // Simulación (luego backend)
+  // Simulación de datos
   const user = {
     name: "Yonangell",
     role: "Admin",
   };
 
   return (
-    // CAMBIO 1: bg-white para que el contenido respire, o mantén el oscuro si prefieres. 
-    // Añadimos 'sticky top-0' para que el navbar siempre esté visible al hacer scroll.
-    <header className="h-16 bg-white border-b border-slate-200 flex items-center justify-between px-4 md:px-8 shrink-0 sticky top-0 z-30">
-      
-      {/* Left: Hamburguesa + Título */}
-      <div className="flex items-center gap-3">
-        {/* BOTÓN HAMBURGUESA: Solo visible en móviles (md:hidden) */}
-        <button 
+    <header className="h-20 bg-white/80 backdrop-blur-md border-b border-light flex items-center justify-between px-6 md:px-10 shrink-0 sticky top-0 z-30 shadow-sm shadow-dark/5">
+      <div className="flex items-center gap-4">
+        <button
           onClick={onMenuClick}
-          className="p-2 -ml-2 text-slate-600 md:hidden hover:bg-slate-100 rounded-xl transition-colors"
+          className="p-2.5 -ml-2 text-dark md:hidden hover:bg-light rounded-2xl transition-all active:scale-95 cursor-pointer"
           aria-label="Abrir menú"
         >
-          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 6h16M4 12h16M4 18h7" />
+          <svg
+            className="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="2.5"
+              d="M4 6h16M4 12h16M4 18h7"
+            />
           </svg>
         </button>
 
-        <Text className="text-lg md:text-xl text-slate-900 font-bold tracking-tight">
-          Gestión<span className="text-blue-600 font-black">P</span>
-        </Text>
-      </div>
-
-      {/* Right: Info de Usuario */}
-      <div className="flex items-center gap-2 md:gap-5">
-        {/* En móvil ocultamos el nombre y el rol para ganar espacio */}
-        <div className="hidden sm:block text-right">
-          <Text className="text-sm font-bold text-slate-900 leading-none">{user.name}</Text>
-          <Text className="text-[10px] text-slate-500 font-medium uppercase tracking-wider">{user.role}</Text>
+        <div className="flex flex-col md:hidden">
+          <Text className="text-lg font-black text-dark tracking-tighter leading-none">
+            Gestión<span className="text-primary italic font-black">P</span>
+          </Text>
         </div>
 
-        <div className="flex items-center gap-3 pl-2 md:pl-5 border-l border-slate-100">
-          <Avatar className="w-8 h-8 md:w-9 md:h-9 border-2 border-slate-100 shadow-sm" />
-          
-          <button className="hidden md:block text-xs font-bold text-red-500 hover:text-red-600 transition-colors">
-            Cerrar sesión
-          </button>
+        <div className="hidden md:block">
+          <Text className="text-[10px] font-black uppercase tracking-[0.3em] opacity-30">
+            Panel /{" "}
+            <span className="opacity-100 text-dark">Resumen General</span>
+          </Text>
+        </div>
+      </div>
+
+      <div className="flex items-center gap-4 md:gap-6">
+        <div className="hidden sm:flex flex-col items-end">
+          <Text className="text-sm font-black text-dark leading-none tracking-tighter italic">
+            {user.name}
+          </Text>
+          <div className="mt-1.5">
+            <span className="text-[8px] font-black bg-dark text-neutral-700 px-2 py-0.5 rounded-md uppercase tracking-[0.2em] italic shadow-lg shadow-dark/10">
+              {user.role}
+            </span>
+          </div>
+        </div>
+
+        <div className="h-8 w-[1px] bg-light mx-1 hidden sm:block opacity-50" />
+
+        <div className="relative group cursor-pointer pr-2">
+          <div className="w-11 h-11 rounded-xl bg-gradient-to-br from-dark to-slate-700 p-[2px] shadow-xl shadow-dark/5 transition-all duration-500 group-hover:rotate-6 group-hover:scale-110 group-hover:shadow-primary/20">
+            <div className="w-full h-full rounded-[10px] bg-white overflow-hidden flex items-center justify-center">
+              <span className="text-dark font-black text-sm italic uppercase tracking-tighter transition-colors group-hover:text-primary">
+                {user.name.charAt(0)}
+              </span>
+            </div>
+          </div>
+
+          <div className="absolute -bottom-1 -right-0 w-4 h-4 bg-success border-2 border-white rounded-lg rotate-12 shadow-md"></div>
         </div>
       </div>
     </header>

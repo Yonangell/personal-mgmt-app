@@ -4,10 +4,12 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import LandingNavbar from "@/components/organisms/LandingNavbar";
 import PricingSection from "@/components/organisms/PricingSection";
+import Text from "@/components/atoms/Text";
+import Button from "@/components/atoms/Button";
 
 export default function Home() {
   return (
-    <div className="bg-slate-50 min-h-screen relative overflow-hidden">
+    <div className="bg-light/30 min-h-screen relative overflow-hidden selection:bg-primary/20">
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10 pointer-events-none">
         <motion.div
           animate={{
@@ -16,155 +18,165 @@ export default function Home() {
             y: [0, 50, 0],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-          className="absolute -top-20 -left-20 w-96 h-96 bg-blue-100 rounded-full blur-3xl opacity-50"
+          className="absolute -top-20 -left-20 w-[30rem] h-[30rem] bg-primary/10 rounded-full blur-[100px]"
         />
         <motion.div
           animate={{
-            scale: [1, 1.5, 1],
+            scale: [1, 1.3, 1],
             x: [0, -40, 0],
             y: [0, -60, 0],
           }}
           transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-          className="absolute top-1/2 -right-20 w-80 h-80 bg-purple-100 rounded-full blur-3xl opacity-40"
+          className="absolute top-1/2 -right-20 w-[25rem] h-[25rem] bg-dark/5 rounded-full blur-[100px]"
         />
       </div>
+
       <LandingNavbar />
-      <section className="flex flex-col items-center justify-center pt-32 pb-20 gap-8 text-center px-4 relative">
-        {/* Título con Fade In y Slide Up */}
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
+
+      <section className="flex flex-col items-center justify-center pt-40 pb-24 gap-10 text-center px-4 relative">
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="text-5xl md:text-7xl font-extrabold text-slate-900 leading-tight max-w-4xl"
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex flex-col items-center"
         >
-          Lleva tu Productividad al <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-indigo-600">
-            Siguiente Nivel
-          </span>
-        </motion.h1>
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          className="text-slate-600 text-lg md:text-xl max-w-2xl leading-relaxed"
-        >
-          La plataforma de gestión definitiva para organizar tus tareas, notas y
-          finanzas con el toque maestro del{" "}
-          <span className="font-bold text-slate-800">ME</span>.
-        </motion.p>
+          <h1 className="text-6xl md:text-8xl font-black text-dark leading-[0.9] max-w-5xl tracking-tighter">
+            Domina tu flujo <br />
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-indigo-500 italic">
+              Nivel Maestro
+            </span>
+          </h1>
+
+          <Text className="mt-8 text-dark/60 text-lg md:text-xl max-w-2xl leading-relaxed font-medium">
+            La plataforma de gestión definitiva para organizar tareas, notas y
+            finanzas con el rigor del{" "}
+            <span className="text-dark font-black italic">PRO ME</span>.
+          </Text>
+        </motion.div>
+
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.4 }}
-          className="flex flex-wrap justify-center gap-4 mt-4"
+          className="flex flex-wrap justify-center gap-5"
         >
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href="/login"
-              className="bg-slate-900 text-white px-10 py-4 rounded-2xl font-bold shadow-xl shadow-slate-200 hover:bg-slate-800 transition-all block"
-            >
-              Comenzar Gratis
-            </Link>
-          </motion.div>
+          <Link href="/login">
+            <Button className="px-12 py-5 text-sm bg-slate-300 text-dark hover:text-slate-200 hover:bg-slate-400 shadow-2xl shadow-primary/20 border-none uppercase tracking-widest font-black cursor-pointer">
+              Comenzar Ya
+            </Button>
+          </Link>
 
-          <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-            <Link
-              href="#planes"
-              className="bg-white border-2 border-slate-200 text-slate-900 px-10 py-4 rounded-2xl font-bold hover:border-slate-900 transition-all block"
-            >
+          <Link href="#planes">
+            <Button className="px-12 py-5 text-sm bg-transparent border-2 border-dark/10 text-dark hover:border-dark uppercase tracking-widest font-black shadow-none cursor-pointer">
               Ver Planes
-            </Link>
-          </motion.div>
+            </Button>
+          </Link>
         </motion.div>
       </section>
+
       <motion.section
         id="planes"
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
         viewport={{ once: true }}
-        transition={{ duration: 0.8 }}
-        className="py-24 bg-white rounded-t-[3rem] shadow-2xl relative z-10"
+        transition={{ duration: 1 }}
+        className="py-32 bg-white rounded-t-[4rem] shadow-[0_-20px_50px_rgba(0,0,0,0.05)] relative z-10"
       >
-        <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-slate-900">
-              Planes para cada necesidad
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-20">
+            <h2 className="text-4xl md:text-5xl font-black text-dark tracking-tighter">
+              Planes de Élite
             </h2>
-            <p className="text-slate-500 mt-4 text-lg">
-              Desde uso personal hasta gestión profesional avanzada.
-            </p>
+            <Text className="text-dark/40 mt-4 text-lg font-bold italic">
+              Desde el control personal hasta la automatización industrial.
+            </Text>
           </div>
 
           <PricingSection />
         </div>
       </motion.section>
-      <footer className="bg-white border-t border-slate-100 pt-16 pb-8">
-        <div className="max-w-6xl mx-auto px-6">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-8">
-            <div className="flex flex-col items-center md:items-start gap-2">
-              <div className="flex items-center gap-2">
-                <div className="w-7 h-7 bg-blue-600 rounded-lg flex items-center justify-center font-bold text-white text-sm">
-                  G
+
+      <footer className="bg-white border-t border-light pt-20 pb-10">
+        <div className="max-w-7xl mx-auto px-8">
+          <div className="flex flex-col md:flex-row justify-between items-center gap-12">
+            <div className="flex flex-col items-center md:items-start gap-3">
+              <div className="flex items-center gap-3">
+                <div className="w-9 h-9 bg-slate-900 rounded-xl flex items-center justify-center shadow-lg shadow-dark/10">
+                  <span className="text-white font-black text-xl italic uppercase">
+                    G
+                  </span>
                 </div>
-                <span className="text-xl font-bold text-slate-900 tracking-tight">
-                  Gestión<span className="text-blue-600">P</span>
+                <span className="text-2xl font-black text-dark tracking-tighter">
+                  Gestión<span className="text-primary italic">P</span>
                 </span>
               </div>
-              <p className="text-slate-400 text-sm font-medium">
-                Potenciando tu flujo de trabajo diario.
-              </p>
+              <Text className="text-dark/30 text-[10px] font-black uppercase tracking-[0.2em]">
+                Ingeniería en Productividad Personal
+              </Text>
             </div>
-            <div className="flex gap-8 text-sm font-bold text-slate-500">
+
+            <div className="flex gap-10 text-[10px] font-black text-dark/40 uppercase tracking-widest">
               <Link
                 href="#planes"
-                className="hover:text-blue-600 transition-colors"
+                className="hover:text-primary transition-all"
               >
                 Planes
               </Link>
-              <Link
-                href="/login"
-                className="hover:text-blue-600 transition-colors"
-              >
+              <Link href="/login" className="hover:text-primary transition-all">
                 Acceso
               </Link>
-              <a href="#" className="hover:text-blue-600 transition-colors">
+              <a
+                href="mailto:soporte@prome.com"
+                className="hover:text-primary transition-all"
+              >
                 Soporte
               </a>
             </div>
+
             <div className="flex gap-4">
-              <div className="w-8 h-8 bg-slate-50 rounded-full flex items-center justify-center text-slate-400 hover:bg-blue-50 hover:text-blue-600 transition-all cursor-pointer">
+              {[
+                {
+                  id: "fb",
+                  label: "Facebook",
+                  url: "https://www.facebook.com/yonangelljoseg",
+                },
+                {
+                  id: "ig",
+                  label: "Instagram",
+                  url: "https://www.instagram.com/yonangell/",
+                },
+                {
+                  id: "in",
+                  label: "LinkedIn",
+                  url: "https://www.linkedin.com/in/yonangell-guillen-038b41210/",
+                },
+              ].map((social) => (
                 <a
-                  href="https://www.facebook.com/yonangelljoseg"
+                  key={social.id}
+                  href={social.url}
                   target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-12 h-12 bg-white border-2 border-light rounded-2xl flex items-center justify-center text-dark/20 hover:text-primary hover:border-primary hover:rotate-6 hover:scale-110 hover:shadow-xl hover:shadow-primary/10 transition-all duration-300 cursor-pointer group"
+                  title={social.label}
                 >
-                  <span className="text-xs">fb</span>
+                  <span className="text-xs font-black italic uppercase tracking-tighter group-hover:scale-110 transition-transform">
+                    {social.id}
+                  </span>
                 </a>
-              </div>
-              <div className="w-8 h-8 bg-slate-50 rounded-full flex items-center justify-center text-slate-400 hover:bg-blue-50 hover:text-blue-600 transition-all cursor-pointer">
-                <a href="https://www.instagram.com/yonangell/" target="_blank">
-                  <span className="text-xs">ig</span>
-                </a>
-              </div>
-              <div className="w-8 h-8 bg-slate-50 rounded-full flex items-center justify-center text-slate-400 hover:bg-blue-50 hover:text-blue-600 transition-all cursor-pointer">
-                <a
-                  href="https://www.linkedin.com/in/yonangell-guillen-038b41210/?skipRedirect=true"
-                  target="_blank"
-                >
-                  <span className="text-xs">in</span>
-                </a>
-              </div>
+              ))}
             </div>
           </div>
-          <div className="mt-12 pt-8 border-t border-slate-50 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-slate-400 text-[11px] font-medium uppercase tracking-widest">
-              © 2026 Gestión Personal —{" "}
-              <span className="text-slate-900">Ing. Yonangell Guillen.</span>
+
+          <div className="mt-20 pt-10 border-t border-light flex flex-col md:flex-row justify-between items-center gap-6">
+            <p className="text-dark/20 text-[9px] font-black uppercase tracking-[0.3em]">
+              © 2026 PRO ME SYSTEM —{" "}
+              <span className="text-dark/60">ING. YONANGELL GUILLEN</span>
             </p>
-            <div className="flex gap-6 text-[11px] font-bold text-slate-400 uppercase tracking-widest">
-              <span className="hover:text-slate-600 cursor-pointer transition-colors">
+            <div className="flex gap-8 text-[9px] font-black text-dark/20 uppercase tracking-[0.3em]">
+              <span className="hover:text-dark cursor-pointer transition-colors">
                 Privacidad
               </span>
-              <span className="hover:text-slate-600 cursor-pointer transition-colors">
+              <span className="hover:text-dark cursor-pointer transition-colors">
                 Términos
               </span>
             </div>
