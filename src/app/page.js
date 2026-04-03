@@ -18,7 +18,6 @@ export default function Home() {
             y: [0, 50, 0],
           }}
           transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-          // CAMBIO: Ajuste de opacidad para modo oscuro
           className="absolute -top-20 -left-20 w-[30rem] h-[30rem] bg-primary/10 dark:bg-primary/20 rounded-full blur-[100px]"
         />
         <motion.div
