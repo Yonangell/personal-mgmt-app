@@ -176,10 +176,10 @@ export default function Home() {
               <span className="text-dark/50">ING. YONANGELL GUILLEN</span>
             </p>
             <div className="flex gap-8 text-[9px] font-black text-dark/50 uppercase tracking-[0.3em]">
-              <span className="hover:text-dark dark:hover:text-white cursor-pointer transition-colors">
+              <span className="hover:text-dark dark:hover:text-slate-800 cursor-pointer transition-colors">
                 Privacidad
               </span>
-              <span className="hover:text-dark dark:hover:text-white cursor-pointer transition-colors">
+              <span className="hover:text-dark dark:hover:text-slate-800 cursor-pointer transition-colors">
                 Términos
               </span>
             </div>
