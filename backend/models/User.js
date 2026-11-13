@@ -44,7 +44,7 @@ class User {
     return [rows] || null;
   }
 
-  static async update(id, { name, plan, role }) {
+  static async update(id, { name, plan_id, role }) {
     const query = `
     UPDATE users 
     SET name = COALESCE(?, name),
