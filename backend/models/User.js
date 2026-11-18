@@ -1,4 +1,4 @@
-const db = required("../config/db");
+const db = require("../config/db");
 
 class User {
   static async create({
@@ -24,13 +24,13 @@ class User {
 
   static async findByEmail(email) {
     const query = `
-      SELECT  u.*, p.name, as plan.name, p.max_tasks, p.max_notes, p.max_advanced_analytics
+      SELECT  u.*, p.name AS plan_name, p.max_tasks, p.max_notes, p.has_advanced_analytics
       FROM users u
       JOIN plans p ON u.plan_id = p.id
       WHERE u.email = ?
     `;
     const [rows] = await db.execute(query, [email]);
-    return [rows] || null;
+    return rows[0] || null;
   }
 
   static async findById(id) {
